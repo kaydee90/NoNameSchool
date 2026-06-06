@@ -3,31 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>No Name School – Term 2, 2026 Attendance</title>
+<title>No Name School – Attendance</title>
+<link rel="icon" type="image/png" href="logo.png">
 <style>
-:root{--blue:#2c5f8a;--blue2:#4a8bbf;--green:#27ae60;--red:#e74c3c;--amber:#e8a020;--bg:#f0f4f8;--card:#fff;--border:#e2e8f0;--muted:#718096;--text:#2d3748}
+:root{--blue:#1a35b8;--blue2:#2d4fd4;--gold:#f5c518;--teal:#0d9488;--green:#16a34a;--red:#dc2626;--amber:#d97706;--bg:#eef2ff;--card:#fff;--border:#c7d2f0;--muted:#6b7280;--text:#1e2a5e}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
-header{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;padding:28px 40px 24px;box-shadow:0 4px 20px rgba(0,0,0,.15)}
-header h1{font-size:1.45rem;font-weight:700}
-header .sub{font-size:.9rem;opacity:.85;margin-top:4px}
-header .meta{margin-top:10px;font-size:.82rem;opacity:.75;display:flex;gap:20px;flex-wrap:wrap}
+header{background:linear-gradient(135deg,#0f1f7a 0%,#1a35b8 50%,#1d4ed8 100%);color:#fff;position:relative;overflow:hidden}
+header::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='20'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hdr-inner{max-width:1160px;margin:0 auto;padding:32px 40px 28px;display:flex;align-items:center;gap:28px;position:relative}
+.hdr-logo{width:100px;height:100px;border-radius:50%;border:3px solid var(--gold);box-shadow:0 0 0 6px rgba(245,197,24,.2),0 8px 32px rgba(0,0,0,.3);flex-shrink:0;background:#fff;object-fit:cover}
+.hdr-text{flex:1}
+.hdr-text h1{font-size:2rem;font-weight:800;letter-spacing:.5px;line-height:1.1}
+.hdr-text h1 span{color:var(--gold)}
+.hdr-motto{font-size:1rem;opacity:.85;margin-top:4px;font-style:italic;letter-spacing:.5px}
+.hdr-divider{width:48px;height:3px;background:var(--gold);border-radius:2px;margin:10px 0}
+.hdr-meta{display:flex;gap:20px;flex-wrap:wrap;margin-top:2px}
+.hdr-pill{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:20px;padding:4px 14px;font-size:.78rem;font-weight:600;backdrop-filter:blur(4px)}
+.hdr-pill.gold{background:rgba(245,197,24,.18);border-color:rgba(245,197,24,.4);color:var(--gold)}
+.hdr-strip{height:5px;background:linear-gradient(90deg,var(--gold) 0%,#f5c518 40%,#0d9488 100%)}
 main{max-width:1160px;margin:0 auto;padding:28px 20px 60px}
 .summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:28px}
-.card{background:var(--card);border-radius:10px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.07);border-top:4px solid var(--blue);text-align:center}
-.card.g{border-color:var(--green)}.card.r{border-color:var(--red)}.card.a{border-color:var(--amber)}
+.card{background:var(--card);border-radius:10px;padding:16px;box-shadow:0 2px 8px rgba(26,53,184,.1);border-top:4px solid var(--blue);text-align:center}
+.card.g{border-color:var(--green)}.card.r{border-color:var(--red)}.card.a{border-color:var(--amber)}.card.gold{border-color:var(--gold)}
 .card .n{font-size:1.8rem;font-weight:800;color:var(--blue);line-height:1}
-.card.g .n{color:var(--green)}.card.r .n{color:var(--red)}.card.a .n{color:var(--amber)}
+.card.g .n{color:var(--green)}.card.r .n{color:var(--red)}.card.a .n{color:var(--amber)}.card.gold .n{color:#b45309}
 .card .l{font-size:.75rem;color:var(--muted);margin-top:5px;text-transform:uppercase;letter-spacing:.5px}
 .tabs-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-bottom:2px solid var(--blue);padding-bottom:0}
 .tabs{display:flex;gap:6px;width:max-content;padding:0 2px}
 .tbtn{padding:8px 16px;border:2px solid var(--border);background:var(--card);border-radius:8px 8px 0 0;cursor:pointer;font-size:.82rem;font-weight:600;color:var(--muted);white-space:nowrap;border-bottom:2px solid var(--border);position:relative;bottom:-2px;transition:all .15s;display:flex;flex-direction:column;align-items:center;gap:1px}
 .tsub{font-size:.65rem;font-weight:400;opacity:.8;letter-spacing:.2px}
-.tbtn:hover{background:#eef2f7;color:var(--blue)}
+.tbtn:hover{background:#eef2ff;color:var(--blue)}
 .tbtn.active{background:var(--card);border-color:var(--blue);border-bottom-color:var(--card);color:var(--blue);z-index:1}
 .tbtn .cnt{background:var(--blue2);color:#fff;border-radius:20px;font-size:.7rem;font-weight:700;padding:1px 7px;margin-left:6px}
 .tbtn.active .cnt{background:var(--blue)}
-.panels{background:var(--card);border:2px solid var(--blue);border-top:none;border-radius:0 0 12px 12px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,.08)}
+.panels{background:var(--card);border:2px solid var(--blue);border-top:none;border-radius:0 0 12px 12px;padding:24px;box-shadow:0 4px 16px rgba(26,53,184,.1)}
 .panel{display:none}.panel.active{display:block}
 .gh{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px;padding-bottom:14px;border-bottom:2px solid var(--border)}
 .gt{font-size:1.1rem;font-weight:700;color:var(--blue)}.gt span{font-weight:400;color:var(--muted);font-size:.85rem;margin-left:8px}
@@ -40,15 +50,15 @@ table{width:100%;border-collapse:collapse;font-size:.85rem}
 thead th{background:var(--blue);color:#fff;padding:10px 8px;text-align:left;font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
 thead th.dc{text-align:center;min-width:62px}
 thead th.rc{text-align:center;min-width:80px}
-tbody tr:nth-child(even){background:#f8fafc}
-tbody tr:hover{background:#eef6ff}
+tbody tr:nth-child(even){background:#f5f7ff}
+tbody tr:hover{background:#eef2ff}
 td{padding:9px 8px;border-bottom:1px solid var(--border);vertical-align:middle}
 td.sl{color:var(--muted);font-size:.75rem;width:30px}
 td.nm{font-weight:600}
 td.gd,td.ag{color:var(--muted);font-size:.8rem;white-space:nowrap}
 td.at{text-align:center}
-.bp{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#d4edda;color:var(--green);font-weight:700;font-size:.75rem}
-.ba{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#fde8e8;color:var(--red);font-weight:700;font-size:.75rem}
+.bp{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#dcfce7;color:var(--green);font-weight:700;font-size:.75rem}
+.ba{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#fee2e2;color:var(--red);font-weight:700;font-size:.75rem}
 .be{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:#f0f0f0;color:#aaa;font-size:.7rem}
 .rb{display:flex;align-items:center;gap:6px}
 .bar{flex:1;height:7px;background:#e0e0e0;border-radius:4px;overflow:hidden;min-width:32px}
@@ -86,16 +96,24 @@ footer{text-align:center;margin-top:36px;color:var(--muted);font-size:.78rem}
 </style>
 </head>
 <body>
+<div class="hdr-strip" style="height:4px;background:linear-gradient(90deg,#f5c518,#0d9488)"></div>
 <header>
-  <div>🪷</div>
-  <h1>No Name School — Term 2, 2026</h1>
-  <div class="sub">Batch Attendance Record · All Classes</div>
-  <div class="meta">
-    <span>11 Classes</span>
-    <span id="total-meta">— Students</span>
-    <span>May 2026</span>
+  <div class="hdr-inner">
+    <img src="logo.png" alt="No Name School Logo" class="hdr-logo">
+    <div class="hdr-text">
+      <h1>No Name <span>School</span></h1>
+      <div class="hdr-motto">✦ Be Yourself ✦</div>
+      <div class="hdr-divider"></div>
+      <div class="hdr-meta">
+        <span class="hdr-pill">Term 2 · 2026</span>
+        <span class="hdr-pill">11 Classes</span>
+        <span class="hdr-pill" id="total-meta">— Students</span>
+        <span class="hdr-pill gold">Updated 06 June 2026</span>
+      </div>
+    </div>
   </div>
 </header>
+<div class="hdr-strip"></div>
 <main>
   <div class="summary">
     <div class="card"><div class="n" id="sc-students">—</div><div class="l">Students</div></div>
@@ -106,9 +124,8 @@ footer{text-align:center;margin-top:36px;color:var(--muted);font-size:.78rem}
   </div>
   <div class="tabs-wrap"><div class="tabs" id="tabs"></div></div>
   <div class="panels" id="panels"></div>
-  <footer>Generated 31 May 2026 · No Name School · Term 2, 2026</footer>
+  <footer>Updated 06 June 2026 · No Name School · Auto-updated Sat, Sun &amp; Mon at 7 AM Perth time</footer>
 </main>
-
 <div class="overlay hidden" id="overlay" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="mhd">
@@ -119,234 +136,7 @@ footer{text-align:center;margin-top:36px;color:var(--muted);font-size:.78rem}
   </div>
 </div>
 <script>
-const G=[
-{id:"meto-pema",tab:"Meto Pema",sub:"Lotus · 3–5 yrs",dates:["03 May","10 May","17 May","23 May"],students:[
-{sl:1,n:"Choeying Chimi Tshomo",g:"F",a:"5y 11m",att:["P","P","P","P"]},
-{sl:2,n:"Dechen Tshogyal Norbu",g:"F",a:"5y 4m",att:["P","P","P","P"]},
-{sl:3,n:"Dhoegar Norbu Tshering",g:"M",a:"3y 9m",att:["A","P","P","A"]},
-{sl:4,n:"Jamyang Thinlay Zangmo",g:"F",a:"5y 4m",att:["A","P","P","P"]},
-{sl:5,n:"Jigme Tenzin Pelmo",g:"F",a:"5y 4m",att:["A","A","A","A"]},
-{sl:6,n:"Jimmie Tara Choedon",g:"F",a:"5y 0m",att:["A","P","P","P"]},
-{sl:7,n:"Kinley Yudrolma Dorji",g:"F",a:"3y 10m",att:["P","P","P","P"]},
-{sl:8,n:"Mendrel Yeega Tobgay",g:"F",a:"5y 11m",att:["P","P","P","A"]},
-{sl:9,n:"Ogyen Thinlay Paljor",g:"M",a:"5y 10m",att:["P","P","P","P"]},
-{sl:10,n:"Rabzema Yuthra",g:"F",a:"4y 10m",att:["P","P","P","P"]},
-{sl:11,n:"Selrah Tshogay",g:"F",a:"4y 1m",att:["P","P","P","P"]},
-{sl:12,n:"Sonam Kuenley Dradol",g:"M",a:"4y 5m",att:["P","P","P","P"]},
-{sl:13,n:"Tashi Lekphel",g:"M",a:"4y 4m",att:["A","P","P","P"]},
-{sl:14,n:"Tenzin Yuthika Jamtsho",g:"F",a:"4y 1m",att:["P","P","P","P"]},
-{sl:15,n:"Thujeey Quenchhab",g:"M",a:"5y 7m",att:["A","P","P","P"]},
-{sl:16,n:"Tsheyang Lhamo Gyeltshen",g:"F",a:"5y 2m",att:["A","A","A","A"]},
-{sl:17,n:"Uma Gawa yutshog",g:"F",a:"4y 3m",att:["P","P","P","P"]},
-{sl:18,n:"Yethroma Thuksey Lhamo",g:"F",a:"4y 5m",att:["A","P","P","P"]},
-{sl:19,n:"Pelyang Tenpai Lakdhor",g:"F",a:"3y 11m",att:["P","P","P","P"]},
-{sl:20,n:"Rigzin Garab Tenzin",g:"M",a:"5y 4m",att:["P","A","A","A"]},
-{sl:21,n:"Jordy Padma Wangdi",g:"F",a:"4y 9m",att:["A","A","","P"]},
-{sl:22,n:"Kuenkhyen Namgyal Lhendrup",g:"M",a:"3y 7m",att:["P","P","P","P"]},
-{sl:23,n:"Mila Padma Wangdi",g:"F",a:"—",att:["A","A","","P"]},
-{sl:24,n:"Yoesel Tshewang",g:"M",a:"5y 6m",att:["P","P","P","P"]},
-{sl:25,n:"Decho Tashi Lhamo",g:"F",a:"5y 4m",att:["A","A","A","A"]},
-{sl:26,n:"Kelzang Kuenzom",g:"F",a:"4y 7m",att:["P","A","P","P"]},
-{sl:27,n:"Yulha Jigten Gyembo",g:"M",a:"3y 11m",att:["P","P","P","A"]},
-]},
-{id:"ser-nya",tab:"Ser Nya",sub:"Golden Fish · 3–5 yrs",dates:["03 May","10 May","18 May","24 May"],students:[
-{sl:1,n:"Choyeing Chozang Sherpa",g:"F",a:"5y 4m",att:["P","P","P","P"]},
-{sl:2,n:"Jamyang Jamtshok",g:"M",a:"5y 5m",att:["A","P","P","A"]},
-{sl:3,n:"Jana Daki Drakpa",g:"F",a:"3y 11m",att:["A","P","P","P"]},
-{sl:4,n:"Jigdrel Khenrab",g:"M",a:"3y 9m",att:["A","P","P","P"]},
-{sl:5,n:"Lhakuen Benduraya",g:"F",a:"4y 8m",att:["P","P","P","A"]},
-{sl:6,n:"Luca Peljor",g:"M",a:"4y 0m",att:["A","P","P","P"]},
-{sl:7,n:"Namgyel Thrilay",g:"M",a:"5y 6m",att:["A","A","P","A"]},
-{sl:8,n:"Rigzin Lhamo Samdrup",g:"F",a:"5y 2m",att:["A","P","P","P"]},
-{sl:9,n:"Rinchen Samdrup Wangchuk",g:"M",a:"5y 6m",att:["P","P","A","P"]},
-{sl:10,n:"Tshering Lhazay Tenzin",g:"F",a:"5y 5m",att:["P","P","P","P"]},
-{sl:11,n:"Osel Chime Choyang",g:"F",a:"4y 6m",att:["P","P","P","P"]},
-{sl:12,n:"Jigmmy Chophel",g:"M",a:"5y 6m",att:["P","A","A","P"]},
-{sl:13,n:"Choegyal Jurmeth Tenzin",g:"M",a:"4y 5m",att:["P","P","P","P"]},
-{sl:14,n:"Pema Rigsel Wangdi",g:"M",a:"4y 3m",att:["","","P",""]},
-{sl:15,n:"Rigphel Norden Wangchuk",g:"M",a:"5y 11m",att:["P","P","P","P"]},
-{sl:16,n:"Ngawang Khenrab Jamtsho",g:"M",a:"3y 8m",att:["A","P","A","A"]},
-{sl:17,n:"Choeying Doelma Chophel",g:"F",a:"—",att:["A","P","P","P"]},
-{sl:18,n:"Choeying Mejur Dorji",g:"M",a:"—",att:["","P","P","P"]},
-{sl:19,n:"Jamyang kencho Nidup",g:"M",a:"—",att:["","A","A","A"]},
-{sl:20,n:"Jamyang Tenzin",g:"M",a:"—",att:["","P","P","A"]},
-{sl:21,n:"Jangchub Pelden Dorjee",g:"F",a:"—",att:["","P","P","P"]},
-{sl:22,n:"Kuenzang Garab Kinga",g:"F",a:"—",att:["","P","P","P"]},
-{sl:23,n:"Ogyen Nangsa Drolma",g:"F",a:"—",att:["","P","P","P"]},
-{sl:24,n:"Karma Norzin",g:"F",a:"—",att:["","A","A",""]},
-{sl:25,n:"Gyurmee Jamyang Rigzin",g:"M",a:"6y 2m",att:["","","",""]},
-]},
-{id:"bumpa",tab:"Bumpa",sub:"Treasure Vase · 6–7 yrs",dates:["02 May","05 Sep","16 May","23 May"],students:[
-{sl:1,n:"Chimi Tshokey Dorji",g:"F",a:"6y 11m",att:["P","A","P","P"]},
-{sl:2,n:"Dolkar Yeshey Lhamo",g:"F",a:"7y 3m",att:["P","P","A","P"]},
-{sl:3,n:"Jamyang Eutso",g:"F",a:"8y 8m",att:["A","A","A","A"]},
-{sl:4,n:"Jigme Pema Wangmo",g:"F",a:"7y 9m",att:["A","P","P","P"]},
-{sl:5,n:"Kuenga Pema Rangdrel",g:"M",a:"7y 10m",att:["P","P","P","P"]},
-{sl:6,n:"Ngawang Thinley",g:"M",a:"7y 11m",att:["A","P","A","P"]},
-{sl:7,n:"Rigzin Thinley Norbu",g:"M",a:"7y 10m",att:["P","P","P","P"]},
-{sl:8,n:"Tenzin Jetsunma",g:"F",a:"6y 1m",att:["P","P","P","P"]},
-{sl:9,n:"Thrinley Wangdrak Dorji",g:"M",a:"8y 0m",att:["P","P","P","A"]},
-{sl:10,n:"Tshogyel Jimba Drolkey",g:"F",a:"7y 2m",att:["P","A","A","A"]},
-{sl:11,n:"Ugyen Tenzin Norbu",g:"M",a:"7y 8m",att:["P","P","P","P"]},
-{sl:12,n:"Kuenlek Samdrup Dorjee",g:"M",a:"6y 1m",att:["P","P","P","P"]},
-{sl:13,n:"Jampel Younten Tshering",g:"M",a:"—",att:["P","P","A","P"]},
-{sl:14,n:"Sherab Wangchuk",g:"",a:"—",att:["A","A","A","P"]},
-{sl:15,n:"Yetsho Thinley Dupzhaedma",g:"F",a:"7y 10m",att:["A","A","","A"]},
-]},
-{id:"dungkar",tab:"Dungkar",sub:"Conch Shell · 6–7 yrs",dates:["02 May","09 May","16 May","23 May"],students:[
-{sl:1,n:"Choeyang Dema Dorji",g:"F",a:"6y 7m",att:["P","P","P","P"]},
-{sl:2,n:"Gigi Tashi YangChen",g:"F",a:"7y 6m",att:["P","P","P","A"]},
-{sl:3,n:"Jamyang Jangchuk Lhundup",g:"M",a:"7y 4m",att:["A","P","P","P"]},
-{sl:4,n:"Jigdrel Namgay Wangchuk",g:"M",a:"7y 6m",att:["P","P","P","P"]},
-{sl:5,n:"Karma Tshering Jigme",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:6,n:"Lhamo Eutshok Dorji",g:"F",a:"6y 10m",att:["P","P","P","P"]},
-{sl:7,n:"Pema Tshewang Norbu",g:"M",a:"7y 10m",att:["P","A","P","P"]},
-{sl:8,n:"Rigzin Chimi Wangmo",g:"F",a:"7y 7m",att:["P","P","P","P"]},
-{sl:9,n:"Rigzin wangmo (Kiki)",g:"F",a:"7y 11m",att:["P","P","A","P"]},
-{sl:10,n:"Sangay Rigsel Samdrup",g:"M",a:"6y 9m",att:["A","P","P","A"]},
-{sl:11,n:"Sonam Gawa Yoezer",g:"M",a:"7y 0m",att:["P","P","P","P"]},
-{sl:12,n:"Tenphel Dolma",g:"F",a:"8y 0m",att:["P","P","P","P"]},
-{sl:13,n:"Thinley Yangchen Dolkar",g:"F",a:"7y 5m",att:["A","P","P","P"]},
-{sl:14,n:"Tshewang Dolma",g:"F",a:"6y 7m",att:["P","A","P","A"]},
-{sl:15,n:"Sonam Tshering Rabgay",g:"M",a:"6y 0m",att:["P","P","P","P"]},
-]},
-{id:"drami",tab:"Drami",sub:"Endless Knot · 8–9 yrs",dates:["03 May","10 May","24 May"],students:[
-{sl:1,n:"Dolma Woezer Yangzom",g:"F",a:"8y 8m",att:["A","P","P"]},
-{sl:2,n:"Jamphel Wangchuk Dorji",g:"M",a:"10y 0m",att:["P","P","P"]},
-{sl:3,n:"Jangchub yeekar Choezom",g:"F",a:"9y 4m",att:["P","P","P"]},
-{sl:4,n:"Jigdrel Yeshey Choden",g:"F",a:"9y 4m",att:["P","P","P"]},
-{sl:5,n:"Lhachoe Dolma Phuntsho",g:"F",a:"9y 8m",att:["P","P","P"]},
-{sl:6,n:"Nyingdhen Haang Subba",g:"M",a:"8y 11m",att:["P","P","P"]},
-{sl:7,n:"Rigdhen Dolwa Phuntsho",g:"F",a:"9y 8m",att:["P","P","P"]},
-{sl:8,n:"Rinchen Norbu",g:"M",a:"9y 6m",att:["P","A","P"]},
-{sl:9,n:"Tara Tsephelma",g:"F",a:"8y 10m",att:["P","P","P"]},
-{sl:10,n:"Tashi Singye Dhendup",g:"M",a:"8y 4m",att:["P","P","P"]},
-{sl:11,n:"Thrinley Thagye Rangdrol",g:"M",a:"8y 3m",att:["P","P","P"]},
-{sl:12,n:"Yangchen Yetsho Lhamo",g:"F",a:"8y 11m",att:["P","P","P"]},
-{sl:13,n:"Youdon Lhamo",g:"F",a:"9y 7m",att:["A","P","P"]},
-{sl:14,n:"Chimmi Nyaljor Dolma",g:"F",a:"8y 4m",att:["P","P","P"]},
-{sl:15,n:"Yetshok Wangmo",g:"F",a:"8y 3m",att:["P","P","P"]},
-{sl:16,n:"Zhiwa Tshering Lhamo",g:"F",a:"8y 4m",att:["P","P","P"]},
-{sl:17,n:"Sonam Tenzin Chophel",g:"M",a:"8y 1m",att:["P","P","P"]},
-{sl:18,n:"Tandin Wangyeal Dorjee",g:"M",a:"8y 1m",att:["A","P","P"]},
-]},
-{id:"dhug",tab:"Dhug",sub:"Parasol · 8–9 yrs",dates:["03 May","10 May","17 May","24 May","30 May"],students:[
-{sl:1,n:"Gelek Yangzom Chogyel",g:"F",a:"8y 11m",att:["A","P","P","P","P"]},
-{sl:2,n:"Jamyang Sherab Yoedbar",g:"M",a:"8y 9m",att:["P","P","P","P","P"]},
-{sl:3,n:"Jigme Kuenga Paldhen",g:"M",a:"8y 5m",att:["A","P","P","P","P"]},
-{sl:4,n:"Jigme Kuenzang Singye",g:"M",a:"8y 5m",att:["A","P","P","P","P"]},
-{sl:5,n:"Jigme Rabten",g:"M",a:"8y 11m",att:["P","A","P","P","P"]},
-{sl:6,n:"Jigdrel Pema Lhamo",g:"F",a:"9y 6m",att:["P","A","P","P","A"]},
-{sl:7,n:"Karma Dezhin Tashi",g:"M",a:"9y 2m",att:["A","P","P","P","P"]},
-{sl:8,n:"Kunzang Tendel Gaytsho",g:"M",a:"9y 5m",att:["A","P","P","P","A"]},
-{sl:9,n:"Namdrel Namsey Wangchuk",g:"M",a:"8y 8m",att:["P","P","P","P","A"]},
-{sl:10,n:"Nangsel Yezin Pelldrub",g:"F",a:"9y 10m",att:["P","P","P","P","P"]},
-{sl:11,n:"Sherab Dolma",g:"F",a:"9y 6m",att:["P","","P","P","P"]},
-{sl:12,n:"Rigzin Jigme Wangpo",g:"M",a:"8y 6m",att:["P","P","P","P","A"]},
-{sl:13,n:"Rinchen Tshomo",g:"F",a:"8y 11m",att:["A","P","P","P","A"]},
-{sl:14,n:"Sonam Rigzin Dawa",g:"M",a:"8y 9m",att:["P","P","P","P","P"]},
-{sl:15,n:"Yoezang Yangchen Mepham",g:"F",a:"8y 5m",att:["P","P","P","P",""]},
-{sl:16,n:"Jigme Kinga Rabten",g:"M",a:"9y 9m",att:["P","A","P","P","P"]},
-{sl:17,n:"Lodey Nima",g:"M",a:"txewanglhamo",att:["","P","","",""]},
-{sl:18,n:"Singye wangchuk Dorji",g:"M",a:"8y 3m",att:["P","P","P","P","P"]},
-{sl:19,n:"Karma Yosel Dorji",g:"M",a:"9y 6m",att:["P","P","P","P","P"]},
-]},
-{id:"gyeltshen",tab:"Gyeltshen",sub:"Victory Banner · 10–12 yrs",dates:["05 Feb","10 May","16 May","23 May","30 May"],students:[
-{sl:1,n:"Dechen Selzom Dorji",g:"F",a:"12y 6m",att:["A","P","P","P",""]},
-{sl:2,n:"Deeyang Etsho Lhazin",g:"F",a:"11y 1m",att:["P","A","P","P",""]},
-{sl:3,n:"Eutsho Zeyden Wangzom",g:"F",a:"12y 7m",att:["P","A","P","P",""]},
-{sl:4,n:"Gyelsa Ngawang Yangsel",g:"F",a:"12y 10m",att:["A","P","A","P",""]},
-{sl:5,n:"Jetsun Chemi Seldron",g:"F",a:"12y 5m",att:["P","P","P","P",""]},
-{sl:6,n:"Jynba Yezer",g:"M",a:"12y 1m",att:["P","P","P","P",""]},
-{sl:7,n:"Lhendrup Chezom Tenzin",g:"F",a:"10y 9m",att:["P","P","P","P",""]},
-{sl:8,n:"Sangay Shegyel Jamtsho",g:"M",a:"12y 3m",att:["P","A","P","P",""]},
-{sl:9,n:"Tshewang Lhamo Zeden",g:"F",a:"12y 2m",att:["P","A","P","P",""]},
-{sl:10,n:"Yangsel Rabyang Tshoki",g:"F",a:"11y 0m",att:["P","A","P","P",""]},
-{sl:11,n:"Karma Sonam Dorjee",g:"M",a:"10y 4m",att:["P","A","P","P",""]},
-{sl:12,n:"Palden Yeshey",g:"F",a:"11y 0m",att:["P","P","P","P",""]},
-{sl:13,n:"Sangay Khedrup Woesel",g:"M",a:"11y 0m",att:["P","P","P","P",""]},
-{sl:14,n:"Ugyen Dechog Tshogyal",g:"F",a:"11y 2m",att:["P","A","P","P",""]},
-{sl:15,n:"Jigmed Paldhen Wangchuk",g:"M",a:"10y 3m",att:["P","A","P","P",""]},
-{sl:16,n:"Tshering Tobgay",g:"M",a:"10y 2m",att:["P","A","P","P",""]},
-]},
-{id:"khorlo",tab:"Khorlo",sub:"Dharma Wheel · 10–12 yrs",dates:["02 May","09 May","16 May","23 May"],students:[
-{sl:1,n:"Karma Ugyen Dorji",g:"M",a:"11y 8m",att:["A","P","P","P"]},
-{sl:2,n:"Khyenrab Thaye Yoedbar",g:"M",a:"11y 10m",att:["P","A","P","P"]},
-{sl:3,n:"Lhakye Pelden Tshezom",g:"F",a:"10y 8m",att:["A","P","P","P"]},
-{sl:4,n:"Pelbheu Yeshi Thinley",g:"M",a:"12y 3m",att:["P","P","P","P"]},
-{sl:5,n:"Pelchen Dorji Wangchuk",g:"M",a:"10y 8m",att:["P","P","P","P"]},
-{sl:6,n:"Tshering Yangchen Yeshi",g:"F",a:"10y 11m",att:["A","P","","P"]},
-{sl:7,n:"Yingchuk Lhamo",g:"F",a:"12y 2m",att:["A","P","","P"]},
-{sl:8,n:"Palden Yeshi Phuntshok",g:"M",a:"12y 2m",att:["P","P","P","P"]},
-{sl:9,n:"Yewong Utpal Lhazom",g:"F",a:"10y 6m",att:["A","P","","P"]},
-{sl:10,n:"Pema Yangdron",g:"F",a:"10y 4m",att:["A","P","P","P"]},
-{sl:11,n:"Yugdrel Nima Penjor",g:"M",a:"—",att:["A","A","P",""]},
-{sl:12,n:"Choyang Seldon",g:"F",a:"—",att:["P","P","P","P"]},
-{sl:13,n:"Lhaki Eden Zangmo",g:"F",a:"—",att:["A","P","P","P"]},
-{sl:14,n:"Sonam Peday Retty",g:"F",a:"—",att:["P","P","P","P"]},
-{sl:15,n:"Jigme Ngotshar",g:"M",a:"—",att:["A","P","P","P"]},
-{sl:16,n:"Jamphel Dorjee Norbu",g:"M",a:"10y 2m",att:["P","","",""]},
-]},
-{id:"nyingje",tab:"Nyingje",sub:"Compassion · 10–12 yrs",dates:["02 May","09 May","15 May","23 May"],students:[
-{sl:1,n:"Jigme Drukdra Wangyel",g:"M",a:"Chonga1560&gmail.com",att:["P","","P",""]},
-{sl:2,n:"Jigme Kintu Zangpo",g:"M",a:"dekiwangmo2015@gmail.com",att:["P","","P",""]},
-{sl:3,n:"Jigme Wangden Lhamo",g:"F",a:"frenzhi2004@gmail.com",att:["P","A","P",""]},
-{sl:4,n:"Jigme Yoesel Rikzin",g:"M",a:"Phubthai83@gmail.com",att:["P","","P",""]},
-{sl:5,n:"Kunzang Tsheltrim Choden",g:"F",a:"kunzangkhandu26@gmail.com",att:["P","","P",""]},
-{sl:6,n:"Pema Choeying Phuntsho",g:"F",a:"Kchoden21@gmail.com",att:["P","A","A","A"]},
-{sl:7,n:"Tenzin Lhaden Yangzom",g:"F",a:"yangchen87.yl@gmail.com",att:["P","A","P",""]},
-{sl:8,n:"Yonten Jamyang Jamtsho",g:"M",a:"kuenzang.cheda2226@gmail.com",att:["P","P","P","A"]},
-{sl:9,n:"Rosel Yiga Dorjee",g:"F",a:"osnif91@gmail.com",att:["P","P","P",""]},
-{sl:10,n:"Euden Lhazin Dolkar",g:"F",a:"yangku2014@gmail.com",att:["P","P","P",""]},
-{sl:11,n:"Kuenchap Thinley Samdrup",g:"M",a:"tsheringlee@gmail.com",att:["A","A","P",""]},
-{sl:12,n:"Pema Zilnen Dorji",g:"M",a:"dekitshering18@gmail.com",att:["P","P","P",""]},
-{sl:13,n:"Rigdhen Yangwang Palmo",g:"F",a:"yangchen555mo@gmail.com",att:["A","A","A","A"]},
-{sl:14,n:"Tashi Kinga Tshering",g:"M",a:"nloday76@gmail.com",att:["P","P","P","P"]},
-{sl:15,n:"Sonam Mendel Lhamo",g:"F",a:"pelmadecheysg@gmail.com",att:["A","A","A","A"]},
-{sl:16,n:"Pema Rigzin Tamang",g:"M",a:"phurbatmng3@gmail.con",att:["P","P","P","P"]},
-{sl:17,n:"Kinley Wangay Rabgyel",g:"M",a:"Pinkeyp2015@gmail.com",att:["P","P","A","A"]},
-{sl:18,n:"Dechen Zangmo",g:"F",a:"kezdem@gmail.com",att:["P","P","P","P"]},
-]},
-{id:"gawa",tab:"Gawa",sub:"Joy · 8–9 yrs",dates:["03 May","10 May","16 May","23 May","31 May"],students:[
-{sl:1,n:"Jangchup Nyema Yoezer",g:"M",a:"cadleo2011@gmail.com",att:["P","P","P","P",""]},
-{sl:2,n:"Jigdrel Namgay Wangchuk",g:"M",a:"thinley1986mindrup@gmail.com",att:["P","A","A","A",""]},
-{sl:3,n:"Jigme Ugyen Dorji",g:"M",a:"wangchuktshomobhutan@gmail.com",att:["P","A","P","P",""]},
-{sl:4,n:"Kezang Tshoki Tshering",g:"F",a:"dechensmcl@gmail.com",att:["P","P","P","P",""]},
-{sl:5,n:"Kinley Sherub Yangdon",g:"F",a:"tashitenzin992@gmail.com",att:["A","A","A","A",""]},
-{sl:6,n:"Loday Dorji",g:"M",a:"ugyenplhaden1993@yahoo.com",att:["A","A","A","A",""]},
-{sl:7,n:"Lozang Dee Jatsho",g:"M",a:"edenndorji@gmail.com",att:["P","P","P","P",""]},
-{sl:8,n:"Rabsel Dawa",g:"M",a:"drukpa.tshering@gmail.com",att:["P","P","P","P",""]},
-{sl:9,n:"Rigzin Yangden",g:"F",a:"dechenzangmo91@gmail.com",att:["P","P","A","P",""]},
-{sl:10,n:"Sonam yeatsho dolkar",g:"F",a:"Sangaywangs777@yahoo.com",att:["A","A","A","A",""]},
-{sl:11,n:"Tenzin Dolkar Tshering",g:"F",a:"pelgyal@gmail.com",att:["P","P","P","P",""]},
-{sl:12,n:"Tshering Yutsho",g:"F",a:"snmwngd82@gmail.com",att:["A","A","A","A",""]},
-{sl:13,n:"Yeshi Khedrup Chophel",g:"M",a:"kzangmo2010@gmail.com",att:["P","P","A","P",""]},
-{sl:14,n:"Yewong Pema Dechen",g:"F",a:"Chimieden45@gmail.com",att:["P","P","A","P",""]},
-{sl:15,n:"Rigzom Tenzin Namgyel",g:"F",a:"deechenpelden@gmail.com",att:["P","P","A","P",""]},
-{sl:16,n:"Tenzin Deki Yangchen",g:"F",a:"penjor04@gmail.com",att:["P","P","P","P",""]},
-{sl:17,n:"Ugyen Choezom",g:"F",a:"cwangchuk46@yahoo.com",att:["A","A","","P",""]},
-{sl:18,n:"Dolma Namdrelma",g:"F",a:"dechayz1007@gmail.com",att:["A","A","P","P",""]},
-{sl:19,n:"Jigwang Sonam Kinga",g:"M",a:"schoekey57@gmail.com",att:["P","A","P","P",""]},
-{sl:20,n:"Jigme Yeegyal",g:"M",a:"tlwangchuk@gmail.com",att:["P","P","P","P",""]},
-{sl:21,n:"Dechen Tshomo Tshoki",g:"F",a:"Kinley.kp.choden@gmail.com",att:["P","P","P","P",""]},
-]},
-{id:"bhuram",tab:"Bhuram Shingpa",sub:"13–15 yrs",dates:["09 May","15 May","22 May","29 May"],students:[
-{sl:1,n:"Singye Wangmo",g:"F",a:"—",att:["P","P","P","A"]},
-{sl:2,n:"Tenzin Tshewang Selden",g:"F",a:"—",att:["P","P","P","A"]},
-{sl:3,n:"Euphel Yeshey Lhazin",g:"F",a:"—",att:["P","P","P","P"]},
-{sl:4,n:"Samdrup Zangmo",g:"F",a:"—",att:["P","P","P","P"]},
-{sl:5,n:"Sonam Tshoki Lhamae",g:"F",a:"—",att:["P","P","P","P"]},
-{sl:6,n:"Needup Paljor",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:7,n:"Khenrab Yoenten",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:8,n:"Ugyen Jangchub Dawa",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:9,n:"Lekdhen Norbu",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:10,n:"Sonam E Drolma",g:"F",a:"—",att:["P","P","",""]},
-{sl:11,n:"Pema Sonam Rigsel",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:12,n:"Kuenley Tenzin",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:13,n:"Jigme Palden Wangchuk",g:"M",a:"—",att:["P","P","P","P"]},
-{sl:14,n:"Tenzin Euthra Dhamima",g:"F",a:"—",att:["A","A","P","P"]},
-]}
-];
+const G=[{"id": "meto-pema", "tab": "Meto Pema", "sub": "Lotus · 3–5 yrs", "dates": ["03 May", "10 May", "17 May", "23 May", "31 May"], "students": [{"sl": 1, "n": "Choeying Chimi Tshomo", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 2, "n": "Dechen Tshogyal Norbu", "g": "F", "a": "4y 6m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 3, "n": "Dhoegar Norbu Tshering", "g": "M", "a": "—", "att": ["A", "P", "P", "A", "P"]}, {"sl": 4, "n": "Jamyang Thinlay Zangmo", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "A"]}, {"sl": 5, "n": "Jigme Tenzin Pelmo", "g": "F", "a": "—", "att": ["A", "A", "A", "A", ""]}, {"sl": 6, "n": "Jimmie Tara Choedon", "g": "F", "a": "4y 11m", "att": ["A", "P", "P", "P", "A"]}, {"sl": 7, "n": "Kinley Yudrolma Dorji", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 8, "n": "Mendrel Yeega Tobgay", "g": "F", "a": "—", "att": ["P", "P", "P", "A", "P"]}, {"sl": 9, "n": "Ogyen Thinlay Paljor", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 10, "n": "Rabzema Yuthra", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 11, "n": "Selrah Tshogay", "g": "F", "a": "4y 2m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 12, "n": "Sonam Kuenley Dradol", "g": "M", "a": "5y 4m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 13, "n": "Tashi Lekphel", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 14, "n": "Tenzin Yuthika Jamtsho", "g": "F", "a": "3y 11m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 15, "n": "Thujeey Quenchhab", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 16, "n": "Tsheyang Lhamo Gyeltshen", "g": "F", "a": "5y 2m", "att": ["A", "A", "A", "A", "A"]}, {"sl": 17, "n": "Uma Gawa yutshog", "g": "F", "a": "3y 9m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 18, "n": "Yethroma Thuksey Lhamo", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 19, "n": "Pelyang Tenpai Lakdhor", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 20, "n": "Rigzin Garab Tenzin", "g": "M", "a": "—", "att": ["P", "A", "A", "A", "A"]}, {"sl": 21, "n": "Jordy Padma Wangdi", "g": "F", "a": "4y 9m", "att": ["A", "A", "A", "P", "P"]}, {"sl": 22, "n": "Kuenkhyen Namgyal Lhendrup", "g": "M", "a": "3y 8m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 23, "n": "Mila Padma Wangdi", "g": "F", "a": "—", "att": ["A", "A", "A", "P", "P"]}, {"sl": 24, "n": "Yoesel Tshewang", "g": "M", "a": "5y 6m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 25, "n": "Decho Tashi Lhamo", "g": "F", "a": "5y 4m", "att": ["A", "A", "A", "A", "A"]}, {"sl": 26, "n": "Kelzang Kuenzom", "g": "F", "a": "4y 8m", "att": ["P", "A", "P", "P", "A"]}, {"sl": 27, "n": "Yulha Jigten Gyembo", "g": "M", "a": "3y 11m", "att": ["P", "P", "P", "A", "P"]}]}, {"id": "ser-nya", "tab": "Ser Nya", "sub": "Golden Fish · 3–5 yrs", "dates": ["03 May", "10 May", "17 May", "24 May", "31 May"], "students": [{"sl": 1, "n": "Choyeing Chozang Sherpa", "g": "F", "a": "4y 10m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 2, "n": "Jamyang Jamtshok", "g": "M", "a": "—", "att": ["A", "P", "P", "A", "P"]}, {"sl": 3, "n": "Jana Daki Drakpa", "g": "F", "a": "4y 3m", "att": ["A", "P", "P", "P", "P"]}, {"sl": 4, "n": "Jigdrel Khenrab", "g": "M", "a": "4y 3m", "att": ["A", "P", "P", "P", "P"]}, {"sl": 5, "n": "Lhakuen Benduraya", "g": "F", "a": "5y 0m", "att": ["P", "P", "P", "A", "P"]}, {"sl": 6, "n": "Luca Peljor", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "A"]}, {"sl": 7, "n": "Namgyel Thrilay", "g": "M", "a": "6y 2m", "att": ["A", "A", "P", "A", "P"]}, {"sl": 8, "n": "Rigzin Lhamo Samdrup", "g": "F", "a": "4y 7m", "att": ["A", "P", "P", "P", "P"]}, {"sl": 9, "n": "Rinchen Samdrup Wangchuk", "g": "M", "a": "—", "att": ["P", "P", "A", "P", "P"]}, {"sl": 10, "n": "Tshering Lhazay Tenzin", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 11, "n": "Osel Chime Choyang", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 12, "n": "Jigmmy Chophel", "g": "M", "a": "—", "att": ["P", "A", "A", "P", "P"]}, {"sl": 13, "n": "Choegyal Jurmeth Tenzin", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 14, "n": "Pema Rigsel Wangdi(not in story park)", "g": "M", "a": "4y 1m", "att": ["", "", "P", "", ""]}, {"sl": 15, "n": "Rigphel Norden Wangchuk", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 16, "n": "Ngawang Khenrab Jamtsho", "g": "M", "a": "3y 8m", "att": ["A", "P", "A", "A", "A"]}, {"sl": 17, "n": "Choeying Doelma Chophel", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 18, "n": "Choeying Mejur Dorji", "g": "M", "a": "—", "att": ["", "P", "P", "P", "P"]}, {"sl": 19, "n": "Jamyang kencho Nidup( Not in story park)", "g": "M", "a": "—", "att": ["", "A", "A", "A", ""]}, {"sl": 20, "n": "Jamyang Tenzin", "g": "M", "a": "—", "att": ["", "P", "P", "A", "P"]}, {"sl": 21, "n": "Jangchub Pelden Dorjee", "g": "F", "a": "—", "att": ["", "P", "P", "P", "P"]}, {"sl": 22, "n": "Kuenzang Garab Kinga", "g": "F", "a": "—", "att": ["", "P", "P", "P", "P"]}, {"sl": 23, "n": "Ogyen Nangsa Drolma", "g": "F", "a": "—", "att": ["", "P", "P", "P", "P"]}, {"sl": 24, "n": "Karma Norzin", "g": "F", "a": "5y 7m", "att": ["", "A", "A", "", ""]}, {"sl": 25, "n": "Gyurmee Jamyang Rigzi(Is this active)", "g": "M", "a": "—", "att": ["", "", "", "", ""]}]}, {"id": "bumpa", "tab": "Bumpa", "sub": "Treasure Vase · 6–7 yrs", "dates": ["02 May", "05 Sep", "16 May", "23 May", "5/30/26"], "students": [{"sl": 1, "n": "Chimi Tshokey Dorji", "g": "F", "a": "6y 10m", "att": ["P", "A", "P", "P", "P"]}, {"sl": 2, "n": "Dolkar Yeshey Lhamo", "g": "F", "a": "—", "att": ["P", "P", "A", "P", "A"]}, {"sl": 3, "n": "Jamyang Eutso", "g": "F", "a": "8y 6m", "att": ["A", "A", "A", "A", "A"]}, {"sl": 4, "n": "Jigme Pema Wangmo", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 5, "n": "Kuenga Pema Rangdrel", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 6, "n": "Ngawang Thinley", "g": "M", "a": "—", "att": ["A", "P", "A", "P", "P"]}, {"sl": 7, "n": "Rigzin Thinley Norbu", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 8, "n": "Tenzin Jetsunma", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 9, "n": "Thrinley Wangdrak Dorji", "g": "M", "a": "—", "att": ["P", "P", "P", "A", "P"]}, {"sl": 10, "n": "Tshogyel Jimba Drolkey", "g": "F", "a": "—", "att": ["P", "A", "A", "A", "A"]}, {"sl": 11, "n": "Ugyen Tenzin Norbu", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 12, "n": "Kuenlek Samdrup Dorjee", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 13, "n": "Jampel Younten Tshering", "g": "M", "a": "—", "att": ["P", "P", "A", "P", "P"]}, {"sl": 14, "n": "Sherab Wangchuk", "g": "", "a": "—", "att": ["A", "A", "A", "P", "P"]}, {"sl": 15, "n": "Yetsho Thinley Dupzhaedma", "g": "F", "a": "—", "att": ["A", "A", "", "A", "A"]}]}, {"id": "dungkar", "tab": "Dungkar", "sub": "Conch Shell · 6–7 yrs", "dates": ["02 May", "09 May", "16 May", "23 May", "05/30/26"], "students": [{"sl": 1, "n": "Choeyang Dema Dorji", "g": "F", "a": "6y 6m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 2, "n": "Gigi Tashi YangChen", "g": "F", "a": "—", "att": ["P", "P", "P", "A", "P"]}, {"sl": 3, "n": "Jamyang Jangchuk Lhundup", "g": "M", "a": "7y 0m", "att": ["A", "P", "P", "P", "P"]}, {"sl": 4, "n": "Jigdrel Namgay Wangchuk", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 5, "n": "Karma Tshering Jigme", "g": "M", "a": "8y 3m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 6, "n": "Lhamo Eutshok Dorji", "g": "F", "a": "6y 11m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 7, "n": "Pema Tshewang Norbu", "g": "M", "a": "—", "att": ["P", "A", "P", "P", "P"]}, {"sl": 8, "n": "Rigzin Chimi Wangmo", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 9, "n": "Rigzin wangmo (Kiki)", "g": "F", "a": "—", "att": ["P", "P", "A", "P", "A"]}, {"sl": 10, "n": "Sangay Rigsel Samdrup", "g": "M", "a": "6y 8m", "att": ["A", "P", "P", "A", "A"]}, {"sl": 11, "n": "Sonam Gawa Yoezer", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 12, "n": "Tenphel Dolma", "g": "F", "a": "7y 7m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 13, "n": "Thinley Yangchen Dolkar", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "A"]}, {"sl": 14, "n": "Tshewang Dolma", "g": "F", "a": "—", "att": ["P", "A", "P", "A", "P"]}, {"sl": 15, "n": "Sonam Tshering Rabgay", "g": "M", "a": "6y 1m", "att": ["P", "P", "P", "P", "P"]}]}, {"id": "drami", "tab": "Drami", "sub": "Endless Knot · 8–9 yrs", "dates": ["03 May", "10 May", "17 May", "24 May", "31 May"], "students": [{"sl": 1, "n": "Dolma Woezer Yangzom", "g": "F", "a": "9y 2m", "att": ["A", "P", "A", "P", "A"]}, {"sl": 2, "n": "Jamphel Wangchuk Dorji", "g": "M", "a": "10y 2m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 3, "n": "Jangchub yeekar Choezom", "g": "F", "a": "—", "att": ["P", "P", "A", "P", "P"]}, {"sl": 4, "n": "Jigdrel Yeshey Choden", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 5, "n": "Lhachoe Dolma Phuntsho", "g": "F", "a": "9y 9m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 6, "n": "Nyingdhen Haang Subba", "g": "M", "a": "8y 6m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 7, "n": "Rigdhen Dolwa Phuntsho", "g": "F", "a": "9y 9m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 8, "n": "Rinchen Norbu", "g": "M", "a": "—", "att": ["P", "A", "P", "P", "A"]}, {"sl": 9, "n": "Tara Tsephelma", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 10, "n": "Tashi Singye Dhendup", "g": "M", "a": "8y 4m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 11, "n": "Thrinley Thagye Rangdrol", "g": "M", "a": "8y 0m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 12, "n": "Yangchen Yetsho Lhamo", "g": "F", "a": "8y 7m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 13, "n": "Youdon Lhamo", "g": "F", "a": "9y 7m", "att": ["A", "P", "P", "P", "A"]}, {"sl": 14, "n": "Chimmi Nyaljor Dolma", "g": "F", "a": "—", "att": ["P", "P", "A", "P", "A"]}, {"sl": 15, "n": "Yetshok Wangmo", "g": "F", "a": "7y 11m", "att": ["P", "P", "A", "P", "A"]}, {"sl": 16, "n": "Zhiwa Tshering Lhamo", "g": "F", "a": "8y 10m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 17, "n": "Sonam Tenzin Chophel", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 18, "n": "Tandin Wangyeal Dorjee", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "P"]}]}, {"id": "dhug", "tab": "Dhug", "sub": "Parasol · 8–9 yrs", "dates": ["03 May", "10/05", "17/05", "24 May", "30.05"], "students": [{"sl": 1, "n": "Gelek Yangzom Chogyel", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 2, "n": "Jamyang Sherab Yoedbar", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 3, "n": "Jigme Kuenga Paldhen", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 4, "n": "Jigme Kuenzang Singye", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 5, "n": "Jigme Rabten", "g": "M", "a": "—", "att": ["P", "A", "P", "P", "P"]}, {"sl": 6, "n": "Jigdrel Pema Lhamo", "g": "F", "a": "—", "att": ["P", "A", "P", "P", "A"]}, {"sl": 7, "n": "Karma Dezhin Tashi", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "P"]}, {"sl": 8, "n": "Kunzang Tendel Gaytsho", "g": "M", "a": "—", "att": ["A", "P", "P", "P", "A"]}, {"sl": 9, "n": "Namdrel Namsey Wangchuk", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 10, "n": "Nangsel Yezin Pelldrub", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 11, "n": "Sherab Dolma", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 12, "n": "Rigzin Jigme Wangpo", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "A"]}, {"sl": 13, "n": "Rinchen Tshomo", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "A"]}, {"sl": 14, "n": "Sonam Rigzin Dawa", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 15, "n": "Yoezang Yangchen Mepham", "g": "F", "a": "—", "att": ["P", "P", "P", "P", ""]}, {"sl": 16, "n": "Jigme Kinga Rabten", "g": "M", "a": "—", "att": ["P", "A", "P", "P", "P"]}, {"sl": 17, "n": "Lodey Nima", "g": "M", "a": "8y 3m", "att": ["", "P", "", "", ""]}, {"sl": 18, "n": "Singye wangchuk Dorji", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 19, "n": "Karma Yosel Dorji", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}]}, {"id": "gawa", "tab": "Gawa", "sub": "Joy · 8–9 yrs", "dates": ["03 May", "10 May", "16 May", "23 May", "31 May", "07 Jun", "14 Jun", "21 Jun", "28 Jun"], "students": [{"sl": 1, "n": "Jangchup Nyema Yoezer", "g": "M", "a": "9y 4m", "att": ["P", "P", "P", "P", "P", "", "", "", ""]}, {"sl": 2, "n": "Jigme Ugyen Dorji", "g": "M", "a": "—", "att": ["P", "A", "P", "P", "P", "", "", "", ""]}, {"sl": 3, "n": "Kezang Tshoki Tshering", "g": "F", "a": "8y 8m", "att": ["P", "P", "P", "P", "P", "", "", "", ""]}, {"sl": 4, "n": "Kinley Sherub Yangdon", "g": "F", "a": "8y 0m", "att": ["A", "A", "A", "A", "", "", "", "", ""]}, {"sl": 5, "n": "Loday Dorji", "g": "M", "a": "7y 7m", "att": ["A", "A", "A", "A", "", "", "", "", ""]}, {"sl": 6, "n": "Lozang Dee Jatsho", "g": "M", "a": "9y 0m", "att": ["P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 7, "n": "Rabsel Dawa", "g": "M", "a": "8y 8m", "att": ["P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 8, "n": "Rigzin Yangden", "g": "F", "a": "8y 0m", "att": ["P", "P", "A", "P", "", "", "", "", ""]}, {"sl": 9, "n": "Sonam yeatsho dolkar", "g": "F", "a": "7y 5m", "att": ["A", "A", "A", "A", "", "", "", "", ""]}, {"sl": 10, "n": "Tenzin Dolkar Tshering", "g": "F", "a": "8y 2m", "att": ["P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 11, "n": "Tshering Yutsho", "g": "F", "a": "8y 10m", "att": ["A", "A", "A", "A", "", "", "", "", ""]}, {"sl": 12, "n": "Yeshi Khedrup Chophel", "g": "M", "a": "9y 3m", "att": ["P", "P", "A", "P", "", "", "", "", ""]}, {"sl": 13, "n": "Yewong Pema Dechen", "g": "F", "a": "8y 0m", "att": ["P", "P", "A", "P", "", "", "", "", ""]}, {"sl": 14, "n": "Rigzom Tenzin Namgyel", "g": "F", "a": "8y 6m", "att": ["P", "P", "A", "P", "", "", "", "", ""]}, {"sl": 15, "n": "Tenzin Deki Yangchen", "g": "F", "a": "8y 6m", "att": ["P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 16, "n": "Ugyen Choezom", "g": "F", "a": "—", "att": ["A", "A", "", "P", "", "", "", "", ""]}, {"sl": 17, "n": "Dolma Namdrelma", "g": "F", "a": "8y 8m", "att": ["A", "A", "P", "P", "", "", "", "", ""]}, {"sl": 18, "n": "Jigwang Sonam Kinga", "g": "M", "a": "8y 8m", "att": ["P", "A", "P", "P", "", "", "", "", ""]}, {"sl": 19, "n": "Jigme Yeegyal", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 20, "n": "Dechen Tshomo Tshoki", "g": "F", "a": "8y 7m", "att": ["P", "P", "P", "P", "", "", "", "", ""]}]}, {"id": "gyeltshen", "tab": "Gyeltshen", "sub": "Victory Banner · 10–12 yrs", "dates": ["05 Feb", "10 May", "16 May", "23 May", "30 May", "06 Jun", "13 Jun", "20 Jun", "27 Jun", "04 Jul"], "students": [{"sl": 1, "n": "Dechen Selzom Dorji", "g": "F", "a": "—", "att": ["A", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 2, "n": "Deeyang Etsho Lhazin", "g": "F", "a": "—", "att": ["P", "A", "P", "P", "P", "", "", "", "", ""]}, {"sl": 3, "n": "Eutsho Zeyden Wangzom", "g": "F", "a": "13y 0m", "att": ["P", "A", "P", "P", "A", "", "", "", "", ""]}, {"sl": 4, "n": "Gyelsa Ngawang Yangsel", "g": "F", "a": "13y 0m", "att": ["A", "P", "A", "P", "P", "", "", "", "", ""]}, {"sl": 5, "n": "Jetsun Chemi Seldron", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 6, "n": "Jynba Yezer", "g": "M", "a": "12y 2m", "att": ["P", "P", "P", "P", "A", "", "", "", "", ""]}, {"sl": 7, "n": "Lhendrup Chezom Tenzin", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 8, "n": "Sangay Shegyel Jamtsho", "g": "M", "a": "12y 2m", "att": ["P", "A", "P", "P", "A", "", "", "", "", ""]}, {"sl": 9, "n": "Tshewang Lhamo Zeden", "g": "F", "a": "—", "att": ["P", "A", "P", "P", "A", "", "", "", "", ""]}, {"sl": 10, "n": "Yangsel Rabyang Tshoki", "g": "F", "a": "—", "att": ["P", "A", "P", "P", "A", "", "", "", "", ""]}, {"sl": 11, "n": "Karma Sonam Dorjee", "g": "M", "a": "9y 7m", "att": ["P", "A", "P", "P", "A", "", "", "", "", ""]}, {"sl": 12, "n": "Palden Yeshey Choden", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 13, "n": "Sangay Khedrup Woesel", "g": "M", "a": "10y 9m", "att": ["P", "P", "P", "P", "A", "", "", "", "", ""]}, {"sl": 14, "n": "Ugyen Dechog Tshogyal", "g": "F", "a": "—", "att": ["P", "A", "P", "P", "P", "", "", "", "", ""]}, {"sl": 15, "n": "Jigmed Paldhen Wangchuk", "g": "M", "a": "—", "att": ["P", "A", "P", "P", "P", "", "", "", "", ""]}, {"sl": 16, "n": "Tshering Tobgay", "g": "M", "a": "10y 5m", "att": ["P", "A", "P", "P", "P", "", "", "", "", ""]}]}, {"id": "khorlo", "tab": "Khorlo", "sub": "Dharma Wheel · 10–12 yrs", "dates": ["05 Feb", "05 Sep", "5/16/2026", "23 May"], "students": [{"sl": 1, "n": "Karma Ugyen Dorji( Get email of parent)", "g": "M", "a": "—", "att": ["A", "P", "P", "P"]}, {"sl": 2, "n": "Khyenrab Thaye Yoedbar", "g": "M", "a": "—", "att": ["P", "A", "P", "P"]}, {"sl": 3, "n": "Lhakye Pelden Tshezom", "g": "F", "a": "—", "att": ["A", "P", "P", "P"]}, {"sl": 4, "n": "Pelbheu Yeshi Thinley", "g": "M", "a": "—", "att": ["P", "P", "P", "P"]}, {"sl": 5, "n": "Pelchen Dorji Wangchuk", "g": "M", "a": "—", "att": ["P", "P", "P", "P"]}, {"sl": 6, "n": "Tshering Yangchen Yeshi", "g": "F", "a": "—", "att": ["A", "P", "", "P"]}, {"sl": 7, "n": "Yingchuk Lhamo", "g": "F", "a": "—", "att": ["A", "P", "", "P"]}, {"sl": 8, "n": "Palden Yeshi Phuntshok", "g": "M", "a": "—", "att": ["P", "P", "P", "P"]}, {"sl": 9, "n": "Yewong Utpal Lhazom", "g": "F", "a": "—", "att": ["A", "P", "", "P"]}, {"sl": 10, "n": "Pema Yangdron", "g": "F", "a": "—", "att": ["A", "P", "P", "P"]}, {"sl": 11, "n": "Yugdrel Nima Penjor", "g": "M", "a": "11y 8m", "att": ["A", "A", "P", ""]}, {"sl": 12, "n": "Choyang Seldon", "g": "F", "a": "—", "att": ["P", "P", "P", "P"]}, {"sl": 13, "n": "Lhaki Eden Zangmo", "g": "F", "a": "—", "att": ["A", "P", "P", "P"]}, {"sl": 14, "n": "Sonam Peday Retty", "g": "F", "a": "11y 10m", "att": ["P", "P", "P", "P"]}, {"sl": 15, "n": "Jigme Ngotshar", "g": "M", "a": "—", "att": ["A", "P", "P", "P"]}, {"sl": 16, "n": "Jamphel Dorjee Norbu", "g": "M", "a": "—", "att": ["P", "", "", ""]}]}, {"id": "nyingje", "tab": "Nyingje", "sub": "Compassion · 10–12 yrs", "dates": ["02 May", "09 May", "15 May", "23 May", "30 May"], "students": [{"sl": 1, "n": "Jigme Drukdra Wangyel", "g": "M", "a": "9y 10m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 2, "n": "Jigme Kintu Zangpo", "g": "M", "a": "11y 11m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 3, "n": "Jigme Wangden Lhamo", "g": "F", "a": "11y 6m", "att": ["P", "A", "P", "P", "A"]}, {"sl": 4, "n": "Jigme Yoesel Rikzin", "g": "M", "a": "10y 11m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 5, "n": "Kunzang Tsheltrim Choden", "g": "F", "a": "10y 0m", "att": ["P", "P", "P", "P", "A"]}, {"sl": 6, "n": "Pema Choeying Phuntsho", "g": "F", "a": "10y 0m", "att": ["P", "A", "A", "A", ""]}, {"sl": 7, "n": "Tenzin Lhaden Yangzom", "g": "F", "a": "10y 6m", "att": ["P", "A", "P", "P", "A"]}, {"sl": 8, "n": "Yonten Jamyang Jamtsho", "g": "M", "a": "11y 8m", "att": ["P", "P", "P", "A", "A"]}, {"sl": 9, "n": "Rosel Yiga Dorjee", "g": "F", "a": "11y 5m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 10, "n": "Euden Lhazin Dolkar", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 11, "n": "Kuenchap Thinley Samdrup", "g": "M", "a": "—", "att": ["A", "A", "P", "P", "P"]}, {"sl": 12, "n": "Pema Zilnen Dorji", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 13, "n": "Rigdhen Yangwang Palmo( not added in story park)", "g": "F", "a": "11y 8m", "att": ["A", "A", "A", "A", ""]}, {"sl": 14, "n": "Tashi Kinga Tshering", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P"]}, {"sl": 15, "n": "Sonam Mendel Lhamo( not added in story park)", "g": "F", "a": "—", "att": ["A", "A", "A", "A", ""]}, {"sl": 16, "n": "Pema Rigzin Tamang", "g": "M", "a": "10y 7m", "att": ["P", "P", "P", "P", "P"]}, {"sl": 17, "n": "Kinley Wangay Rabgyel", "g": "M", "a": "10y 6m", "att": ["P", "P", "A", "A", "P"]}, {"sl": 18, "n": "Dechen Zangmo", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "A"]}]}, {"id": "bhuram", "tab": "Buram Shingpa", "sub": "13–15 yrs · Batch", "dates": ["09 May", "15 May", "22 May", "29 May", "05 Jun", "12 Jun", "19 Jun", "26 Jun", "03 Jul", "10 Jul"], "students": [{"sl": 1, "n": "Singye Wangmo", "g": "F", "a": "—", "att": ["P", "P", "P", "A", "P", "", "", "", "", ""]}, {"sl": 2, "n": "Tenzin Tshewang Selden", "g": "F", "a": "—", "att": ["P", "P", "P", "A", "P", "", "", "", "", ""]}, {"sl": 3, "n": "Euphel Yeshey Lhazin", "g": "F", "a": "12y 4m", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 4, "n": "Samdrup Zangmo", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 5, "n": "Sonam Tshoki Lhamae", "g": "F", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 6, "n": "Needup Paljor", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 7, "n": "Khenrab Yoenten", "g": "M", "a": "12y 8m", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 8, "n": "Ugyen Jangchub Dawa", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 9, "n": "Lekdhen Norbu", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 10, "n": "Sonam E Drolma", "g": "F", "a": "14y 0m", "att": ["P", "P", "", "", "P", "", "", "", "", ""]}, {"sl": 11, "n": "Pema Sonam Rigsel", "g": "M", "a": "13y 0m", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 12, "n": "Kuenley Tenzin", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 13, "n": "Jigme Palden Wangchuk", "g": "M", "a": "—", "att": ["P", "P", "P", "P", "P", "", "", "", "", ""]}, {"sl": 14, "n": "Tenzin Euthra Dhamima", "g": "F", "a": "—", "att": ["A", "A", "P", "P", "P", "", "", "", "", ""]}]}];
 
 function rate(att){const v=att.filter(x=>x==="P"||x==="A");return v.length?Math.round(att.filter(x=>x==="P").length/v.length*100):0}
 function rc(r){return r>=75?"hi":r>=50?"mi":"lo"}
@@ -359,8 +149,6 @@ function buildGroup(grp,idx){
   const grpRate=totalV?Math.round(totalP/totalV*100):0;
   const perfect=students.filter(s=>rate(s.att)===100).length;
   const zero=students.filter(s=>rate(s.att)===0).length;
-  const rc2=rc(grpRate);
-
   const dateCols=grp.dates.map(d=>`<th class="dc">${d}</th>`).join("");
   const rows=students.map(s=>{
     const r=rate(s.att);
@@ -375,7 +163,6 @@ function buildGroup(grp,idx){
       <td class="at" style="min-width:90px"><div class="rb"><div class="bar"><div class="bf ${c}" style="width:${r}%"></div></div><span class="rp ${c}">${r}%</span></div></td>
     </tr>`;
   }).join("");
-
   return`<div class="panel${idx===0?" active":""}" id="panel-${grp.id}">
     <div class="gh">
       <div class="gt">${grp.tab} <span>${grp.sub}</span></div>
@@ -392,7 +179,6 @@ function buildGroup(grp,idx){
   </div>`;
 }
 
-// Render tabs
 const tabsEl=document.getElementById("tabs");
 tabsEl.innerHTML=G.map((g,i)=>{
   const ageMatch=g.sub.match(/\d+[–\-]\d+\s*yrs?/);
@@ -400,10 +186,8 @@ tabsEl.innerHTML=G.map((g,i)=>{
   return`<button class="tbtn${i===0?" active":""}" onclick="switchTab('${g.id}',this)"><span>${g.tab}<span class="cnt">${g.students.length}</span></span>${ageLbl?`<span class="tsub">${ageLbl}</span>`:""}</button>`;
 }).join("");
 
-// Render panels
 document.getElementById("panels").innerHTML=G.map((g,i)=>buildGroup(g,i)).join("");
 
-// Summary
 const allS=G.flatMap(g=>g.students);
 const totP=allS.reduce((s,st)=>s+st.att.filter(x=>x==="P").length,0);
 const totV=allS.reduce((s,st)=>s+st.att.filter(x=>x==="P"||x==="A").length,0);
@@ -429,43 +213,28 @@ function showNeverCame(groupId){
   const isAll=!groupId;
   const title=isAll?"Never Came — All Classes":(G.find(g=>g.id===groupId).tab+" — Never Came");
   document.getElementById("modal-title").childNodes[0].textContent=title+" ";
-
-  // Never came = at least one marked session (P or A) but zero P
   const hasRecord=s=>s.att.some(x=>x==="P"||x==="A");
   const neverCame=s=>hasRecord(s)&&rate(s.att)===0;
-
-  let html="";
-  let total=0;
+  let html="";let total=0;
   for(const grp of scope){
     const zeros=grp.students.filter(neverCame);
     if(!zeros.length)continue;
     total+=zeros.length;
-    if(isAll){
-      html+=`<div class="msec"><div class="msec-hd">${grp.tab} <span>${grp.sub}</span></div>`;
-    }
+    if(isAll){html+=`<div class="msec"><div class="msec-hd">${grp.tab} <span>${grp.sub}</span></div>`;}
     html+=`<table class="nvt"><thead><tr><th>#</th><th>Name</th><th>G</th><th>Age</th>`;
-    if(isAll) html+=`<th>Group</th>`;
+    if(isAll)html+=`<th>Group</th>`;
     html+=`<th>Attendance</th></tr></thead><tbody>`;
     zeros.forEach((s,i)=>{
       const gender=s.g==="F"?"♀":s.g==="M"?"♂":"—";
       const attBadges=s.att.map(v=>badge(v)).join(" ");
-      html+=`<tr>
-        <td style="color:var(--muted);font-size:.75rem">${i+1}</td>
-        <td style="font-weight:600">${s.n}</td>
-        <td class="mage">${gender}</td>
-        <td class="mage">${s.a}</td>`;
-      if(isAll) html+=`<td><span class="mgrp">${grp.tab}</span></td>`;
-      html+=`<td><div class="nv-att">${attBadges}</div></td>
-      </tr>`;
+      html+=`<tr><td style="color:var(--muted);font-size:.75rem">${i+1}</td><td style="font-weight:600">${s.n}</td><td class="mage">${gender}</td><td class="mage">${s.a}</td>`;
+      if(isAll)html+=`<td><span class="mgrp">${grp.tab}</span></td>`;
+      html+=`<td><div class="nv-att">${attBadges}</div></td></tr>`;
     });
     html+=`</tbody></table>`;
-    if(isAll) html+=`</div>`;
+    if(isAll)html+=`</div>`;
   }
-
-  if(!total){
-    html=`<p class="nv-empty">All students have attended at least once.</p>`;
-  }
-
+  if(!total){html=`<p class="nv-empty">All students have attended at least once.</p>`;}
   document.getElementById("modal-count").textContent=total+" student"+(total!==1?"s":"");
   document.getElementById("modal-bd").innerHTML=html;
   document.getElementById("overlay").classList.remove("hidden");
