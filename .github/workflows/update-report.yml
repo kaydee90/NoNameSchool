@@ -1,9 +1,9 @@
-name: Update StoryPark Report
+name: Update Attendance Report
 
 on:
   schedule:
-    - cron: '0 12 * * 0'  # Every Sunday at 12:00 noon UTC
-  workflow_dispatch:       # Also allows manual trigger from GitHub
+    - cron: '0 23 * * 5,6,0'  # Sat, Sun, Mon at 7:00 AM Perth time (UTC+8 = 23:00 UTC prev day)
+  workflow_dispatch:           # Also allows manual trigger from GitHub
 
 jobs:
   update-report:
